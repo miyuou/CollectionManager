@@ -1,0 +1,89 @@
+﻿@page
+@model MyCollection_0._1.Pages.Data.EditModel
+
+@{
+    ViewData["Title"] = "Modifier un Élément";
+}
+
+<link rel="stylesheet" href="~/css/styleCreate.css">
+
+<div class="form-container">
+    <div class="form-wrapper">
+        <div class="form-header">
+            <h1>Modifier un Élément</h1>
+            <h4>Éditer les détails de votre collection</h4>
+            <hr />
+        </div>
+        <form method="post" class="form-content">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Item.Id" />
+
+            <!-- Champ Title -->
+            <div class="form-group">
+                <label asp-for="Item.Title" class="control-label"></label>
+                <input asp-for="Item.Title" class="form-control" />
+                <span asp-validation-for="Item.Title" class="text-danger"></span>
+            </div>
+
+            <!-- Champ Genre (liste déroulante) -->
+            <div class="form-group">
+                <label asp-for="Item.Genre" class="control-label"></label>
+                <select asp-for="Item.Genre" class="form-control">
+                    <option value="Romance">Romance</option>
+                    <option value="Adventure">Adventure</option>
+                    <option value="Action">Action</option>
+                    <option value="Thriller">Thriller</option>
+                    <option value="Comedy">Comedy</option>
+                    <option value="Drama">Drama</option>
+                    <option value="Fantasy">Fantasy</option>
+                    <option value="Sci-Fi">Sci-Fi</option>
+                    <option value="Horror">Horror</option>
+                    <option value="Mystery">Mystery</option>
+                </select>
+                <span asp-validation-for="Item.Genre" class="text-danger"></span>
+            </div>
+
+            <!-- Champ Link -->
+            <div class="form-group">
+                <label asp-for="Item.Link" class="control-label"></label>
+                <input asp-for="Item.Link" class="form-control" />
+                <span asp-validation-for="Item.Link" class="text-danger"></span>
+            </div>
+
+            <!-- Champ ImageUrl -->
+            <div class="form-group">
+                <label asp-for="Item.ImageUrl" class="control-label"></label>
+                <input asp-for="Item.ImageUrl" class="form-control" />
+                <span asp-validation-for="Item.ImageUrl" class="text-danger"></span>
+            </div>
+
+            <!-- Champ Type (liste déroulante) -->
+            <div class="form-group">
+                <label asp-for="Item.Type" class="control-label"></label>
+                <select asp-for="Item.Type" class="form-control">
+                    <option value="Film">Film</option>
+                    <option value="Manga">Manga</option>
+                </select>
+                <span asp-validation-for="Item.Type" class="text-danger"></span>
+            </div>
+
+            <!-- Champ IsFavorite (case à cocher) -->
+            <div class="form-group form-check">
+                <input asp-for="Item.IsFavorite" class="form-check-input" />
+                <label asp-for="Item.IsFavorite" class="form-check-label"></label>
+            </div>
+
+            <!-- Boutons -->
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary">Sauvegarder</button>
+                <a asp-page="./Index" class="btn btn-secondary">Retour</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation-unobtrusive@3.2.0/dist/jquery.validate.unobtrusive.min.js"></script>
+}

@@ -1,0 +1,55 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link href="~/css/index0.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Hero Section -->
+    <div class="hero">
+        <h1>Collection Manager</h1>
+    </div>
+
+    <!-- Welcome Section -->
+    <div class="container text-center">
+        <h2>Bienvenue sur votre collection personnalisée</h2>
+        <p>Votre plateforme ultime pour gérer et explorer votre collection de mangas et de films.</p>
+        <a asp-page="/Films" class="btn btn-primary">Voir les Films</a>
+        <a asp-page="/Mangas" class="btn btn-secondary">Voir les Mangas</a>
+    </div>
+
+    <!-- Features Section -->
+    <div class="container features">
+        <div class="feature">
+            <div class="icon-wrapper icon-wrapper-blue">
+                <i class="fas fa-tasks"></i>
+            </div>
+            <h3>Gestion Simplifiée</h3>
+            <p>Gérez facilement vos collections de mangas et de films avec des outils intuitifs.</p>
+        </div>
+        <div class="feature">
+            <div class="icon-wrapper icon-wrapper-green">
+                <i class="fas fa-search"></i>
+            </div>
+            <h3>Explorations</h3>
+            <p>Découvrez de nouveaux titres à ajouter à votre collection personnelle.</p>
+        </div>
+        <div class="feature">
+            <div class="icon-wrapper icon-wrapper-yellow">
+                <i class="fas fa-paint-brush"></i>
+            </div>
+            <h3>Personnalisation</h3>
+            <p>Adaptez votre espace pour une expérience qui correspond à vos goûts.</p>
+        </div>
+    </div>
+</body>
+</html>

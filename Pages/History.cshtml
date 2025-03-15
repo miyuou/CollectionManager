@@ -1,0 +1,83 @@
+﻿@page
+@model MyCollection_0._1.Pages.HistoryModel
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historique des Actions</title>
+
+    <!-- Lien vers le fichier CSS externe -->
+    <link href="~/css/history.css" rel="stylesheet">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container mt-5 fade-in">
+        <h1 class="mb-4">Historique des Actions</h1>
+
+        <!-- Affichage des erreurs -->
+        @if (!ModelState.IsValid)
+        {
+            <div class="alert alert-danger">
+                <i class="fas fa-exclamation-circle"></i> Une erreur est survenue :
+                @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+                {
+                    <p>@error.ErrorMessage</p>
+                }
+            </div>
+        }
+
+        <!-- Tableau des historiques -->
+        <div class="table-responsive">
+            <table class="table table-hover table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Action</th>
+                        <th>Détails</th>
+                        <th>Options</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var history in Model.Histories)
+                    {
+                        <tr>
+                            <td>@history.Timestamp.ToShortDateString()</td>
+                            <td>@history.Action</td>
+                            <td>@history.ItemName</td>
+                            <td>
+                                @if (history.Action == "Delete")
+                                {
+                                    <form method="post" asp-page-handler="Restore" asp-route-id="@history.Id" style="display: inline;">
+                                        <button type="submit" class="btn btn-primary btn-sm">
+                                            <i class="fas fa-undo"></i> Récupérer
+                                        </button>
+                                    </form>
+                                }
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Bouton pour vider l'historique -->
+        <div class="mt-3 text-center">
+            <form method="post" asp-page-handler="ClearHistory">
+                <button type="submit" class="btn btn-danger">
+                    <i class="fas fa-trash-alt"></i> Vider l'historique
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Scripts Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

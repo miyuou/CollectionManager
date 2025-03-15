@@ -1,0 +1,76 @@
+﻿body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+}
+
+/* Style des cartes */
+.card {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    }
+
+.card-img-top {
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    height: 200px; /* Taille fixe des images */
+    object-fit: cover; /* Pour couvrir l'espace de manière uniforme */
+    width: 100%; /* Occuper toute la largeur */
+    background-color: #f8f9fa; /* Fond neutre pour les images absentes */
+}
+
+.card-title {
+    font-weight: bold;
+    font-size: 1.1rem;
+    text-align: center;
+    color: #333;
+}
+
+.card-text {
+    font-size: 0.9rem;
+    color: #6c757d;
+    text-align: center;
+}
+
+/* Centrage des boutons */
+.btn-group {
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* Espacement entre les boutons */
+}
+
+.btn {
+    font-size: 0.85rem;
+    padding: 6px 12px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-info {
+    background-color: #17a2b8;
+    border-color: #17a2b8;
+    color: #fff;
+}
+
+.btn-warning {
+    background-color: #ffc107;
+    border-color: #ffc107;
+    color: #212529;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+    color: #fff;
+}
+
+.btn:hover {
+    opacity: 0.85;
+}
+

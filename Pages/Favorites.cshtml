@@ -1,0 +1,61 @@
+﻿@page
+@model MyCollection_0._1.Pages.FavoritesModel
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favorites</title>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+
+
+    <h1 class="text-center mb-4">Favorite Items</h1>
+
+    <div class="row">
+        @if (Model.Items.Count > 0)
+
+        {
+            @foreach (var item in Model.Items)
+
+            {
+                <div class="col-md-4 mb-4">
+                    <div class="card" style="border: 1px solid #ddd; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                        <img class="card-img-top" src="@item.ImageUrl" alt="Image for @item.Title"
+                             style="max-width: 100%; height: 200px; object-fit: cover; border-top-left-radius: 10px; border-top-right-radius: 10px;" />
+                        <div class="card-body">
+                            <h5 class="card-title">@item.Title</h5>
+                            <p class="card-text text-muted"><strong>Genre:</strong> @item.Genre</p>
+                            <p class="card-text"><strong>Type:</strong> @item.Type</p>
+
+                            <p class="card-text"><strong>Personal Note:</strong> @item.PersonalNote</p>
+                            <p class="card-text"><strong>Link:</strong> <a href="@item.Link" target="_blank">@item.Link</a></p>
+
+                            <a asp-page="Data/Details" asp-route-id="@item.Id" class="btn btn-info btn-sm mr-2">Details</a>
+                            <a asp-page="Data/Edit" asp-route-id="@item.Id" class="btn btn-warning btn-sm">Edit</a>
+
+                            <form method="post" asp-page="Data/Delete" asp-route-id="@item.Id" class="d-inline">
+                                <button type="submit" class="btn btn-danger btn-sm"
+                                        onclick="return confirm('Are you sure you want to delete this item?')">
+                                    Delete
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+
+        else
+
+        {
+            <div class="col-12">
+                <p class="text-center text-muted">No favorite items to display.</p>
+            </div>
+        }
+    </div>
+
+</body>
+</html>

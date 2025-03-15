@@ -1,0 +1,100 @@
+﻿body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+}
+
+.navbar {
+    background-color: #343a40;
+}
+
+.navbar a {
+    color: #ffffff;
+}
+
+.card {
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card-title {
+    font-weight: bold;
+}
+
+.card-text {
+    color: #6c757d;
+}
+.favorite-icon {
+    font-size: 1.5rem; /* Augmenter la taille de l'étoile (par exemple 2rem) */
+    color: #6c757d; /* Couleur par défaut (gris) */
+    cursor: pointer; /* Rendre l'icône cliquable */
+    transition: color 0.3s ease-in-out; /* Transition de la couleur */
+}
+
+    .favorite-icon:hover {
+        color: #ffc107; /* Changer la couleur lors du survol (jaune) */
+    }
+
+/* Styles des boutons (plus petits et minimalistes) */
+.btn {
+    font-size: 0.75rem; /* Taille de police réduite */
+    padding: 5px 10px; /* Padding plus petit */
+    border-radius: 15px; /* Bords arrondis plus prononcés */
+    height: auto;
+    width: auto;
+    transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+}
+
+/* Couleurs de fond des boutons */
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+
+.btn-info {
+    background-color: #17a2b8;
+    border-color: #17a2b8;
+}
+
+.btn-warning {
+    background-color: #ffc107;
+    border-color: #ffc107;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+.btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+/* Hover des boutons */
+.btn:hover {
+    opacity: 0.9; /* Légère transparence au survol */
+}
+
+/* Style des boutons "Edit", "Delete", "Details" pour les rendre plus petits */
+.btn-edit, .btn-delete, .btn-details {
+    font-size: 0.7rem; /* Réduit la taille de la police */
+    padding: 3px 8px; /* Réduit le padding */
+    border-radius: 12px; /* Bords arrondis légèrement plus petits */
+}
+
+/* Si vous voulez les boutons dans une seule ligne */
+.btn-group {
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+}

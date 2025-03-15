@@ -1,0 +1,108 @@
+﻿@page
+@model MyCollection_0._1.Pages.Data.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>@Model.Item.Title</h1>
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-success" role="alert">
+        @TempData["Message"]
+    </div>
+}
+<head>
+
+    <link rel="stylesheet" href="~/css/details.css">
+
+</head>
+<script src="~/js/site.js"></script>
+<div class="text-center mb-4">
+    <img src="@Model.Item.ImageUrl" alt="Image for @Model.Item.Title"
+         style="max-width: 300px; height: auto; border: 1px solid #ddd; border-radius: 5px; padding: 5px;" />
+</div>
+
+<div class="row">
+    <div class="col-md-8">
+        <h4>Item Details</h4>
+        <hr />
+        <dl class="row">
+            <!-- Affichage de l'ID -->
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Item.Id)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Item.Id)
+            </dd>
+
+            <!-- Affichage du titre -->
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Item.Title)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Item.Title)
+            </dd>
+
+            <!-- Affichage du genre -->
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Item.Genre)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Item.Genre)
+            </dd>
+
+            <!-- Affichage du lien -->
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Item.Link)
+            </dt>
+            <dd class="col-sm-10">
+                <a href="@Model.Item.Link" target="_blank">@Model.Item.Link</a>
+            </dd>
+
+            <!-- Affichage du type -->
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Item.Type)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Item.Type)
+            </dd>
+
+            <!-- Affichage de la note personnelle -->
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Item.PersonalNote)
+            </dt>
+            <dd class="col-sm-10">
+                @if (Model.Item.PersonalNote != null)
+                {
+                    <p>@Model.Item.PersonalNote</p>
+                }
+                else
+                {
+                    <p>No personal note added yet.</p>
+                }
+            </dd>
+        </dl>
+    </div>
+
+    <div class="col-md-4">
+        <!-- Formulaire pour ajouter une note personnelle -->
+        
+        <form method="post" class="mt-4">
+            <div class="form-group">
+                <label for="PersonalNote">Add a Personal Note:</label>
+                <textarea id="PersonalNote" name="PersonalNote" class="form-control" rows="5">@Model.Item.PersonalNote</textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Save Note</button>
+        </form>
+    </div>
+</div>
+
+<hr />
+
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Item.Id" class="btn btn-primary">Edit</a>
+    <a asp-page="./Index" class="btn btn-secondary">Back to List</a>
+</div>
+
+

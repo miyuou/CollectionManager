@@ -1,0 +1,53 @@
+﻿/* Style général pour la navbar */
+.navbar {
+    background-color: #ffffff; /* Fond blanc */
+    border-bottom: 1px solid #eaeaea; /* Bordure discrète en bas */
+    padding: 0.5rem 1rem;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Légère ombre */
+}
+
+    /* Centrer les éléments de la navbar */
+    .navbar .navbar-nav {
+        margin: 0 auto; /* Centrer le menu */
+        display: flex;
+        gap: 1.5rem; /* Espacement entre les liens */
+    }
+
+    /* Style des liens */
+    .navbar .nav-link {
+        color: #000000; /* Noir classique */
+        font-family: 'Arial', sans-serif;
+        font-weight: 300; /* Police fine */
+        text-transform: uppercase; /* Texte en majuscules */
+        font-size: 0.9rem; /* Taille réduite */
+        transition: color 0.3s ease, transform 0.3s ease; /* Transition élégante */
+    }
+
+        /* Effet au survol */
+        .navbar .nav-link:hover {
+            color: #888888; /* Gris au survol */
+            transform: scale(1.05); /* Légère mise en avant */
+            text-decoration: none; /* Pas de soulignement */
+        }
+
+/* Marque du site */
+.navbar-brand {
+    font-size: 1.2rem;
+    color: #000000; /* Noir pour le logo */
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+/* Bouton toggler pour mobile */
+.navbar-toggler {
+    border: none;
+}
+
+.navbar-toggler-icon {
+    background-image: url('data:image/svg+xml;charset=UTF8,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30"%3E%3Cpath stroke="rgba%280, 0, 0, 0.7%29" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"/%3E%3C/svg%3E');
+}
+
+/* Navbar collabée (mobile) */
+.navbar-collapse {
+    justify-content: center; /* Centrer les liens même en mode mobile */
+}
